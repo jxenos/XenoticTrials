@@ -1,7 +1,5 @@
-//https://www.youtube.com/watch?v=xGmXxpIj6vs&t=2s
-//https://pastebin.com/raw/Z3zhb7cY
-
 <canvas id="gc" width="400" height="400"></canvas>
+
 <script>
 window.onload=function(){
     canv=document.getElementById('gc');
@@ -9,10 +7,10 @@ window.onload=function(){
     document.addEventListener("keydown", keyPush);
     setInterval(game,1000/15);
 }
-xv=yv=0;
 px=py=10;
 gs=tc=20;
 ax=ay=15;
+xv=yv=0;
 trail=[];
 tail=5;
 
@@ -43,15 +41,15 @@ function game () {
         if (trail[i].x==px && trail[i].y==py) {
             tail=5;
         }
-        trail.push({x:px,y:py});
-        while(trail.length > tail){
-            trail.shift();
-        }
-        if (ax==px && ay==py) {
-            tail++;
-            ax=Math.floor(Math.random()*tc);
-            ay=Math.floor(Math.random()*tc);
-        }
+    }
+    trail.push({x:px,y:py});
+    while(trail.length > tail){
+        trail.shift();
+    }
+    if (ax==px && ay==py) {
+        tail++;
+        ax=Math.floor(Math.random()*tc);
+        ay=Math.floor(Math.random()*tc);
     }
 
     ctx.fillStyle="red";
